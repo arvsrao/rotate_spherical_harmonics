@@ -65,22 +65,30 @@ def representationOfSO3(A, degree):
 
 	return rho
 
-# generate a random SO(3) matrix
+# generate a random SO(3) matrix.
 # return a rotation around a randomly generated axis, as 
 # well as the axis
 def generateSO3():
-    #uniformily generate two values between 0 and 1
-    #the equally likely azimuth/elevation pair
+    # generate equally likely azimuth/elevation pair
+    # on the upper hemisphere.
     phi   = 2 * pi * uniform(0, 1)
-    theta = arccos(1 - 2 * uniform(0, 1))
+    theta = arccos(1 - 2 * uniform(0, 0.5))
 
     # axis of rotation
     axis = array([cos(phi) * sin(theta), sin(phi) * sin(theta), cos(theta)], float)
-    
+    xp   = array([cos(phi) * cos(theta), sin(phi) * cos(theta), -sin(theta)], float)
+    yp   = array([-sin(phi), cos(phi), 0])
+    return Matrix([xp, yp, axis]).transpose(), axis
+
+    # We imagine z-axis => axis
+    #
+    #
+    #
     # Solve for 'p'
     # z = (z.dot(p)) * p + (z.dot(axis)) * axis
     #   = p[2] * p + axis[2] * axis
-    z = array([0,0,1], float)
-    w = z - axis[2] * axis #  w = p[2] * p = (p[2] * p[0], p[2] * p[1], p[2] * p[2])
-    p = w / sqrt(abs(w[2]))
-    return Matrix([axis, p, cross(axis, p)]), axis
+    #
+    #  w = p[2] * p = (p[2] * p[0], p[2] * p[1], p[2] * p[2])
+    #w = array([0,0,1], float) - axis[2] * axis
+    #p = w / sqrt(w[2])
+    #return Matrix([cross(axis, p), -p, axis]).transpose(), axis

@@ -22,7 +22,7 @@ z = 10 * np.outer(np.ones(np.size(u)), np.cos(v))
 
 f = x * y * z
 # Plot the surface
-ax.plot_surface(f * x, f * y, f * z, cmap=cm.coolwarm)
+ax.plot_surface(f * x, f * y, f * z, cmap=cm.plasma)
 
 # Set an equal aspect ratio
 ax.set_aspect('auto')
