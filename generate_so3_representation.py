@@ -78,12 +78,9 @@ def generateSO3():
     axis = array([cos(phi) * sin(theta), sin(phi) * sin(theta), cos(theta)], float)
     xp   = array([cos(phi) * cos(theta), sin(phi) * cos(theta), -sin(theta)], float)
     yp   = array([-sin(phi), cos(phi), 0])
-    return Matrix([xp, yp, axis]).transpose(), axis
+    return Matrix([xp, yp, axis]).transpose(), axis, theta, phi
 
     # We imagine z-axis => axis
-    #
-    #
-    #
     # Solve for 'p'
     # z = (z.dot(p)) * p + (z.dot(axis)) * axis
     #   = p[2] * p + axis[2] * axis
