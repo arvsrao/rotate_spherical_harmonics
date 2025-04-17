@@ -2,13 +2,16 @@
 
 On my [blog](https://rao.im/mathematics/2019/10/25/compute-so3-repns/) I presented an algorithm for rotating homogeneous polynomials ( in variables $x$, $y$, and $z$ ) by computing representations of $SO(3)$ on $$\mathcal{P}_d$$, homogeneous polynomials of degree $d$. These representations are matrices in $SO(\mathcal{P}_d)$ and are rotations of  $$p \in \mathcal{P}_d$$. 
 
-The algorithm described in a my [blog](https://rao.im/mathematics/2019/10/25/compute-so3-repns/) post is implemented in `generate_so3_representation.py`. The entry point is function `representationOfSO3`, and it generates a representation of any given $A \in SO(3)$ on  $\mathcal{P}_d$.  
+The algorithm described in a my [blog](https://rao.im/mathematics/2019/10/25/compute-so3-repns/) post is implemented in `generate_so3_representation.py`. The entry point is function `representationOfSO3`, and it generates a representation of any given $A \in SO(3)$ on  $\mathcal{P}_d$. 
 
-Scripts `harmonic-dim-2-comparison.py` and `harmonic-dim-3-comparison.py` demonstrate the effect of rotation by representations of randomly generated $SO(3)$ matrices on two specific harmonic homogeneous polynomials of dimension $2$ and $3$, respectively. 
+Scripts `harmonic-dim-2-comparison.py` and `harmonic-dim-3-comparison.py` demonstrate the effect of rotation by representations on $\mathcal{P}_2$ and $\mathcal{P}_3$, respectively, of randomly generated $SO(3)$ matrices on harmonic homogeneous polynomials:
 
-## Rotate $xy$
+1.  $xy$
+2. $x^2y - \frac{1}{3}y^3$
 
-A trivial example is harmonic polynomial $xy$. Using script `harmonic-dim-2-comparison.py` a representation on $\mathcal{P}_2$ of randomly generated $SO(3)$ matrix 
+## Rotate $xy$ by $\rho_2(A)$ 
+
+A simple example of a harmonic polynomial is $xy$. Using script `harmonic-dim-2-comparison.py` a representation on $\mathcal{P}_2$ of randomly generated $SO(3)$ matrix 
 ```math
 A=
 \begin{bmatrix}
@@ -32,7 +35,7 @@ The figure on the left is $xy$ in the standard x-y-z frame, and the figure on th
 </figure>
 
 
-## Rotate $x^2y - \frac{1}{3}y^3$
+## Rotate $x^2y - \frac{1}{3}y^3$ by $\rho_3(A)$
 
 A less trivial example is harmonic polynomial $x^2y - \frac{1}{3}y^3$. Using script `harmonic-dim-3-comparison.py` a representation on $\mathcal{P}_3$ of randomly generated $SO(3)$ matrix 
 ```math
