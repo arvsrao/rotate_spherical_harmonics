@@ -9,7 +9,7 @@ Scripts `harmonic-dim-2-comparison.py` and `harmonic-dim-3-comparison.py` genera
 1.  $xy$
 2.  $x^2y - \frac{1}{3}y^3$
 
-The generated figures are a visual check that the representations $\rho_d(A)$ indeed correspond to the rotations they are suppose to the represent. Each figure is a side-by-side plot of a harmonic polynomial $p(x,y,z)$ in the standard x-y-z frame, and its rotation by representation $\rho_d(A)$. The colored arrows are the original and rotated frames, respectively. 
+The generated figures are a visual check that the representations $\rho_d(A)$ indeed correspond to the rotations they are suppose to represent. Each figure is a side-by-side plot of a harmonic polynomial $p(x,y,z)$ in the standard x-y-z frame, and its rotation by representation $\rho_d(A)$. The colored arrows are the original and rotated frames, respectively. 
 
 <span style="font-size: 20px; font-weight: bold"> On the Left </span>, 
 
