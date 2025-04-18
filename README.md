@@ -2,12 +2,26 @@
 
 On my [blog](https://rao.im/mathematics/2019/10/25/compute-so3-repns/) I presented an algorithm for rotating homogeneous polynomials ( in variables $x$, $y$, and $z$ ) by computing representations of $SO(3)$ on $$\mathcal{P}_d$$, homogeneous polynomials of degree $d$. These representations are matrices in $SO(\mathcal{P}_d)$ and are rotations of  $$p \in \mathcal{P}_d$$. 
 
-The algorithm described in a my [blog](https://rao.im/mathematics/2019/10/25/compute-so3-repns/) post is implemented in `generate_so3_representation.py`. The entry point is function `representationOfSO3`, and it generates a representation of any given $A \in SO(3)$ on  $\mathcal{P}_d$. 
+The recursive algorithm described in a my [blog](https://rao.im/mathematics/2019/10/25/compute-so3-repns/) post is implemented in `generate_so3_representation.py`. The entry point is function `representationOfSO3`, and it generates a representation of any given $A \in SO(3)$ on  $\mathcal{P}_d$. 
 
-Scripts `harmonic-dim-2-comparison.py` and `harmonic-dim-3-comparison.py` demonstrate the effect of rotation by representations on $\mathcal{P}_2$ and $\mathcal{P}_3$, respectively, of randomly generated $SO(3)$ matrices on harmonic homogeneous polynomials:
+Scripts `harmonic-dim-2-comparison.py` and `harmonic-dim-3-comparison.py` generate figures demonstrating the effect of rotation by representations on $\mathcal{P}_2$ and $\mathcal{P}_3$, respectively, of randomly generated $SO(3)$ matrices on harmonic homogeneous polynomials:
 
 1.  $xy$
-2. $x^2y - \frac{1}{3}y^3$
+2.  $x^2y - \frac{1}{3}y^3$
+
+The generated figures are a visual check that the representations $\rho_d(A)$ indeed correspond to the rotations they are suppose to the represent. Each figure is a side-by-side plot of a harmonic polynomial $p(x,y,z)$ in the standard x-y-z frame, and its rotation by representation $\rho_d(A)$. The colored arrows are the original and rotated frames, respectively. 
+
+<span style="font-size: 20px; font-weight: bold"> On the Left </span>, 
+
+* the <span style="color: red">red</span> arrow marks the positive $z$-axis.
+
+* the <span style="color: CornflowerBlue ">blue</span> arrow marks the positive $y$-axis.
+
+* the <span style="color: green">green</span> arrow marks the positive $x$-axis. 
+
+Like colored arrows on the left map to like colored arrows on the right. For example, the <span style="color: red">red</span> arrow ($z$-axis) plotted on the left is rotated by $A$ to the <span style="color: red">red</span> arrow plotted on the right.
+
+<span style="font-size: 20px;font-weight: bold">On the Right </span>, is a plot of $\rho_d(A)(p)$, the rotation of $p(x,y,z)$ by $\rho_d(A)$.
 
 ## Rotate $xy$ by $\rho_2(A)$ 
 
@@ -21,18 +35,18 @@ A=
 \end{bmatrix},
 ```
 
-with axis of rotation located at $\theta = 0.7734641469345384$ radians and $\phi = 5.234991577347525$ radians, was generated and applied to harmonic homogeneous polynomial $xy$. In figure below, the unrotated polynomial $xy$ (on right) and its rotation by the generated representation (on left) are plotted.
-
-The figure on the left is $xy$ in the standard x-y-z frame, and the figure on the right is its rotation by $\rho(A)$. The colored arrows are original and rotated frames, respectively.
+with axis of rotation located at $\theta = 0.7734641469345384$ radians and $\phi = 5.234991577347525$ radians, was generated and applied to harmonic homogeneous polynomial $xy$. In the figure below, $xy$ is plotted on left in the standard frame, and on the right its rotation by $\rho_d(A)$ is plotted.
 
 <figure>
 <div align="center">
 	<img src = "figures/harmonic-dim-2-rotation.png">
 </div>
   <figcaption align="left"> 
-    On the left is a graph of spherical harmonic function $xy$ in the standard x-y-z frame. On the right is its rotation. The colored arrows are the original and rotated frames, respectively. The z-axis is the <span style="color: red">red</span> arrow, the y-axis is the <span style="color: blue">blue</span> arrow, and x-axis is the <span style="color: green">green</span> arrow. Like colored arrows map to like colored arrows. For example the <span style="color: red">red</span> arrow in left graph maps to the <span style="color: red">red</span> arrow in right graph.
+    On the left is a graph of spherical harmonic function $xy$ in the standard x-y-z frame. On the right is its rotation. The colored arrows are the original and rotated frames, respectively. The z-axis is the <span style="color: red">red</span> arrow, the y-axis is the <span style="color: blue">blue</span> arrow, and x-axis is the <span style="color: green">green</span> arrow. Like colored arrows on the left map to like colored arrows on the right.
   </figcaption> 
 </figure>
+
+
 
 
 ## Rotate $x^2y - \frac{1}{3}y^3$ by $\rho_3(A)$
@@ -48,13 +62,14 @@ A =
 ```
 
 
-with rotation axis located at $\theta = 0.8681555864627436$ radians and $\phi = 2.0901834326555337$ radians, was generated and applied to $x^2y - \frac{1}{3}y^3$. In figure below, the unrotated polynomial $x^2y - \frac{1}{3}y^3$ (on right) and its rotation by the generated representation (on left) are plotted as   
+with rotation axis located at $\theta = 0.8681555864627436$ radians and $\phi = 2.0901834326555337$ radians, was generated and applied to $x^2y - \frac{1}{3}y^3$. In the figure below, $x^2y - \frac{1}{3}y^3$ is plotted on left in the standard frame, and on the right its rotation by $\rho_d(A)$ is plotted.
 
 <figure>
 <div align="center">
 	<img src = "figures/harmonic-dim-3-rotation.png">
 </div>
   <figcaption align="left"> 
-    On the left is a graph of spherical harmonic function $xy$ in the standard x-y-z frame. On the right is its rotation. The colored arrows are the original and rotated frames, respectively. The z-axis is the <span style="color: red">red</span> arrow, the y-axis is the <span style="color: blue">blue</span> arrow, and x-axis is the <span style="color: green">green</span> arrow. Like colored arrows map to like colored arrows. For example the <span style="color: red">red</span> arrow in left graph maps to the <span style="color: red">red</span> arrow in right graph.
+    On the left is a graph of spherical harmonic function $x^2y - \frac{1}{3}y^3$ in the standard x-y-z frame. Its rotation by representation $\rho_d(A)$ is plotted on the right. The colored arrows are the original and rotated frames, respectively. The z-axis is the <span style="color: red">red</span> arrow, the y-axis is the <span style="color: blue">blue</span> arrow, and x-axis is the <span style="color: green">green</span> arrow. Like colored arrows on the left map to like colored arrows on the right. 
   </figcaption> 
 </figure>
+
